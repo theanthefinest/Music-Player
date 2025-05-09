@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}Search Results - Music Player{% endblock %}
+
+{% block content %}
+<div class="form-title">Search Results</div>
+<div class="search-results-container">
+    {% if tracks %}
+        <ul class="search-results-list">
+            {% for track in tracks %}
+                <li class="search-result-item">
+                    <div class="track-info">
+                        <strong>{{ track.title }}</strong> by {{ track.artist }}
+                    </div>
+                    <a class="track-link" href="{{ track.uri }}" target="_blank">
+                        <i class="fas fa-external-link-alt"></i> View on Discogs
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p class="no-results">No results found. Try a different search query.</p>
+    {% endif %}
+</div>
+{% endblock %}

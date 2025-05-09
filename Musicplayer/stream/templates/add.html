@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}Add Music - Music Player{% endblock %}
+
+{% block content %}
+<form class="form" action="" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="form-title">Add Your Favourite Music !!!</div>
+    <div class="input-container ic1">
+        <input name="title" maxlength="500" required="" class="input" type="text" placeholder="Title"
+            spellcheck="false" />
+    </div>
+    <div class="input-container ic2">
+        <input name="artist" maxlength="500" required="" class="input" type="text" placeholder="Artist"
+            spellcheck="false" />
+    </div>
+    <div class="upload-files">
+        <div class="file-input-container">
+            <input type="file" accept="audio/mp3" name="audio_file" required="" class="sm-input-file" id="sm-ip-1" />
+            <label class="for-sm-input-file" for="sm-ip-1">Add Song</label>
+            <span class="span-text" id="file-name1"></span>
+        </div>
+        <div class="file-input-container">
+            <input type="file" accept="image/*" name="cover_image" required="" class="sm-input-file" id="sm-ip-2" />
+            <label class="for-sm-input-file" for="sm-ip-2">Add Image</label>
+            <span class="span-text" id="file-name2"></span>
+        </div>
+    </div>
+    <input type="submit" class="submit-btn" value="Submit" />
+</form>
+{% endblock %}

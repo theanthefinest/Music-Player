@@ -1,0 +1,119 @@
+{% extends 'base.html' %}
+
+{% block title %}Home - Music Player{% endblock %}
+
+{% block content %}
+<div class="main-container">
+    <!-- Left Side - Music Player -->
+    <div class="left">
+        <div class="player-container">
+            <div class="music-player">
+                <!-- Album Cover -->
+                <div class="cover-container">
+                    <img class="music-cover" src="/media/{{music.cover_image}}" alt="Album Cover">
+                    <div class="cover-overlay">
+                        <i class="fas fa-heart favorite-btn" title="Add to Favorites"></i>
+                    </div>
+                </div>
+
+                <!-- Track Information -->
+                <div class="track-info">
+                    <h1 class="song-title">{{music.title|default:"Select a track"}}</h1>
+                    <h3 class="artist">{{music.artist|default:"--"}}</h3>
+                </div>
+
+                <!-- Progress Bar -->
+                <div class="progress-container">
+                    <div class="time-info">
+                        <span id="current-time">0:00</span>
+                        <span id="duration">0:00</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress"></div>
+                    </div>
+                </div>
+
+                <!-- Controls -->
+                <div class="player-controls">
+                    <button class="control-btn shuffle" title="Shuffle">
+                        <i class="fas fa-random"></i>
+                    </button>
+                    <button class="control-btn" id="prev" title="Previous">
+                        <i class="fas fa-step-backward"></i>
+                    </button>
+                    <button class="control-btn play-pause" id="play" title="Play/Pause">
+                        <i class="fas fa-play"></i>
+                    </button>
+                    <button class="control-btn" id="next" title="Next">
+                        <i class="fas fa-step-forward"></i>
+                    </button>
+                    <button class="control-btn repeat" title="Repeat">
+                        <i class="fas fa-redo"></i>
+                    </button>
+                </div>
+
+                <!-- Volume Control -->
+                <div class="volume-container">
+                    <i class="fas fa-volume-up volume-icon"></i>
+                    <input type="range" class="volume-slider" min="0" max="100" value="50">
+                </div>
+
+                <audio class="audio-player" src="{{music.audio_file.url}}"></audio>
+            </div>
+        </div>
+    </div>
+
+    <!-- Right Side - Playlist -->
+    <div class="right">
+        <div class="playlist-header">
+            <div class="playlist-title">
+                <i class="fas fa-music"></i>
+                <h2>My Playlist</h2>
+            </div>
+            <div class="playlist-controls">
+                <button class="filter-btn" title="Filter">
+                    <i class="fas fa-filter"></i>
+                </button>
+                <button class="sort-btn" title="Sort">
+                    <i class="fas fa-sort"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="playlist-container">
+            {% if musics %}
+                {% for music in musics %}
+                <div class="playlist-item {% if forloop.first %}active{% endif %}" data-id="{{ forloop.counter0 }}">
+                    <div class="item-info">
+                        <div class="item-thumbnail">
+                            <img src="/media/{{music.cover_image}}" alt="{{music.title}}">
+                            <div class="play-overlay">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        </div>
+                        <div class="item-details">
+                            <h4 class="item-title">{{music.title}}</h4>
+                            <p class="item-artist">{{music.artist}}</p>
+                        </div>
+                    </div>
+                    <div class="item-actions">
+                        <button class="action-btn" onclick="addToFavorites({{music.id}})">
+                            <i class="fas fa-heart"></i>
+                        </button>
+                        <button class="action-btn" onclick="showOptions({{music.id}})">
+                            <i class="fas fa-ellipsis-v"></i>
+                        </button>
+                    </div>
+                </div>
+                {% endfor %}
+            {% else %}
+                <div class="empty-playlist">
+                    <i class="fas fa-music"></i>
+                    <p>No songs in your playlist</p>
+                    <a href="/add/" class="add-songs-btn">Add Songs</a>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

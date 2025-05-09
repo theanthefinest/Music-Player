@@ -1,0 +1,181 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap");
+:root {
+  --file-color: #fff;
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Nunito Sans", sans-serif;
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  letter-spacing: 1.5px;
+  background-image: url("/static/images/background.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+::-webkit-scrollbar {
+  display: none;
+}
+
+.form {
+  background: rgba(10, 11, 31, 0.95);
+  box-shadow: 1px 10px 20px 5px #222;
+  border-radius: 10px;
+  box-sizing: border-box;
+  padding: 30px;
+  width: 800px;
+}
+
+/* Form Title  */
+.form-title {
+  color: #eee;
+  font-size: 36px;
+  font-weight: 600;
+  margin-top: 15px;
+  text-align: center;
+}
+
+/* Title And Artist Input Container  */
+.input-container {
+  height: 50px;
+  width: 100%;
+}
+
+.ic1 {
+  margin-top: 40px;
+}
+
+.ic2 {
+  margin-top: 30px;
+}
+
+.input {
+  background-color: #303245;
+  border-radius: 4px;
+  border: 0;
+  box-sizing: border-box;
+  color: #fff;
+  font-family: "Nunito Sans", sans-serif;
+  letter-spacing: 1.5px;
+  font-size: 20px;
+  height: 100%;
+  outline: 0;
+  padding: 4px 20px 0;
+  width: 100%;
+}
+
+/* Upload Files Section  */
+.upload-files {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 80px;
+  margin-top: 10px;
+}
+
+.file-input-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin: 2px;
+}
+.sm-input-file {
+  position: absolute;
+  left: 0;
+  width: 90px;
+  height: 24px;
+  border: 1px solid #333;
+  background: #ccc;
+  color: #777;
+  width: 82px;
+  opacity: 0;
+}
+.for-sm-input-file {
+  width: 130px;
+  height: 50px;
+  line-height: 35px;
+  border: 1px solid var(--file-color);
+  padding: 6px;
+  cursor: pointer;
+  z-index: 30;
+  text-align: center;
+  color: var(--file-color);
+  font-size: 20px;
+  letter-spacing: 1px;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+  border-bottom-left-radius: 2px;
+}
+
+.span-text {
+  display: inline-flex;
+  border: 1px solid var(--file-color);
+  border-radius: 2px;
+  height: 50px;
+  min-width: 130px;
+  line-height: 35px;
+  padding: 6px;
+  background: var(--file-color);
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: black;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
+  border-bottom-left-radius: 0px;
+}
+
+/* Submit Button  */
+.submit-btn {
+  background-color: #06b;
+  border-radius: 4px;
+  border: 0;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  font-size: 25px;
+  font-family: "Nunito Sans", sans-serif;
+  letter-spacing: 1.5px;
+  height: 50px;
+  margin-top: 25px;
+  margin-bottom: 15px;
+  text-align: center;
+  width: 100%;
+}
+
+.submit-btn:hover {
+  background-color: #08d;
+}
+
+/* Home Button  */
+.add-button {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  border-radius: 100%;
+  text-align: center;
+  bottom: 30px;
+  right: 30px;
+  background: transparent
+    linear-gradient(to bottom, rgba(10, 11, 31, 0.9) 50%, rgb(10, 11, 31) 70%)
+    repeat scroll 0 0;
+  box-shadow: 0 1rem 2rem 0.2rem rgba(0, 0, 0, 0.4);
+  color: white;
+}
+.add-button i {
+  margin: 0;
+  font-size: 35px;
+}
